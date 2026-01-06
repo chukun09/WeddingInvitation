@@ -1,0 +1,48 @@
+/* Hiệu ứng nền giấy */
+.paper-texture {
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+}
+
+/* Chữ màu vàng kim loại (Gradient Text) */
+.text-gold-gradient {
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Lưới lịch */
+.calendar-grid div {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Animation quay chậm cho icon nhạc */
+.animate-spin-slow {
+    animation: spin 5s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Cánh hoa rơi */
+.petal {
+    position: absolute;
+    background-color: #ffd1dc; /* Màu hồng phấn */
+    border-radius: 150% 0 150% 0;
+    animation: falling 10s linear infinite;
+    opacity: 0.6;
+    z-index: 5;
+}
+
+@keyframes falling {
+    0% { transform: translate(0, -10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translate(20px, 100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Tinh chỉnh thanh cuộn */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: #a0865d; border-radius: 2px; }
