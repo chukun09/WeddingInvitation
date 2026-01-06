@@ -109,16 +109,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function createPetals() {
     const container = document.getElementById('petals-container');
-    const petalCount = 15; // Số lượng cánh hoa
+    // GIẢM SỐ LƯỢNG: 50 cánh là đủ đẹp, 1000 sẽ rất lag
+    const petalCount = 50; 
     
+    // Mảng màu sắc để cánh hoa có độ đậm nhạt khác nhau cho tự nhiên
+    const colors = ['#ffc0cb', '#ffb7b2', '#ffdac1', '#ffe4e1'];
+
     for (let i = 0; i < petalCount; i++) {
         const petal = document.createElement('div');
         petal.classList.add('petal');
+        
+        // --- VỊ TRÍ & KÍCH THƯỚC ---
         petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.animationDuration = Math.random() * 5 + 8 + 's'; // 8-13s
+        // Random kích thước từ 10px đến 20px
+        const size = Math.random() * 10 + 10; 
+        petal.style.width = size + 'px';
+        petal.style.height = size + 'px';
+        
+        // --- MÀU SẮC & ĐỘ MỜ ---
+        petal.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        // Một số cánh sẽ mờ hơn (như ở xa)
+        petal.style.opacity = Math.random() * 0.5 + 0.3; 
+
+        // --- THỜI GIAN HOẠT ẢNH ---
+        // Thời gian rơi: 5s đến 10s (chậm lại cho lãng mạn)
+        petal.style.animationDuration = Math.random() * 5 + 5 + 's'; 
+        // Độ trễ: rải rác để không rơi cùng 1 lúc
         petal.style.animationDelay = Math.random() * 5 + 's';
-        petal.style.width = Math.random() * 10 + 10 + 'px';
-        petal.style.height = Math.random() * 10 + 10 + 'px';
+        
         container.appendChild(petal);
     }
 }
+
