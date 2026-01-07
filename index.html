@@ -37,16 +37,50 @@
 </head>
 <body class="bg-[#e0e0e0] antialiased">
 
-    <div id="music-control" class="fixed bottom-6 left-6 z-50 cursor-pointer w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg border border-gold border-opacity-30">
-        <i class="fa-solid fa-music text-gold animate-spin-slow"></i>
+    <div id="lang-switch" class="fixed top-6 right-6 z-50 cursor-pointer bg-white/80 backdrop-blur-sm border border-gold/30 rounded-full px-1 py-1 flex items-center shadow-lg transition-all hover:bg-white">
+        <div class="lang-option active" data-lang-val="vi">
+            <img src="https://flagcdn.com/w40/vn.png" alt="VN" class="w-5 h-5 rounded-full object-cover">
+        </div>
+        <div class="lang-option" data-lang-val="en">
+            <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="w-5 h-5 rounded-full object-cover">
+        </div>
+    </div>
+
+    <div id="intro-screen">
+        <div class="glow-bg"></div>
+        <div class="envelope-area">
+            <div class="envelope">
+                <div class="envelope-back"></div>
+                <div class="letter">
+                    <div class="letter-content">
+                        <div class="letter-border"></div>
+                        <p class="font-script text-4xl text-gold-dark mb-2">Long & Chi</p>
+                        <p class="font-serif text-sm text-text-main uppercase tracking-widest" data-lang="invite_intro">Trân trọng kính mời</p>
+                    </div>
+                </div>
+                <div class="pocket"></div>
+                <div class="flap"></div>
+                <div class="wax-seal">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <div class="hint-text font-serif">
+            <span class="pulse-icon"><i class="fa-solid fa-hand-pointer"></i></span>
+            <span data-lang="click_to_open">Chạm để mở thiệp</span>
+        </div>
+    </div>
+
+    <div id="music-control" class="hidden fixed bottom-6 left-6 z-50 cursor-pointer w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg border border-gold border-opacity-30">
+        <i class="fa-solid fa-music text-gold"></i>
         <audio id="bg-music" loop>
-            <source src="./assets/wedding.mp3" type="audio/mpeg">
+            <source src="./assets/Perfect.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <div id="petals-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
-    <main class="relative w-full max-w-[480px] mx-auto bg-bg-paper min-h-screen shadow-2xl overflow-hidden paper-texture font-serif text-text-main z-10">
+    <main id="main-content" class="hidden relative w-full max-w-[480px] mx-auto bg-bg-paper min-h-screen shadow-2xl overflow-hidden paper-texture font-serif text-text-main z-10 transition-opacity duration-1000 opacity-0">
         
         <section class="relative h-[75vh]">
             <img src="./assets/DLP_1253.JPG" 
@@ -68,18 +102,18 @@
             <div class="relative z-10">
                 <div class="flex justify-between max-w-xs mx-auto mb-10 text-sm md:text-base uppercase tracking-wider">
                     <div>
-                        <h3 class="font-bold text-gold mb-2">Nhà Gái</h3>
-                        <p class="text-xs font-bold text-gold">Ông Trần Hợp Năm</p>
-                        <p class="text-xs font-bold text-gold">Bà Đỗ Minh Nguyệt</p>
+                        <h3 class="font-bold text-gold mb-2" data-lang="bride_side">Nhà Gái</h3>
+                        <p class="text-xs font-bold text-gold"><span data-lang="mr">Ông</span> Trần Hợp Năm</p>
+                        <p class="text-xs font-bold text-gold"><span data-lang="mrs">Bà</span> Đỗ Minh Nguyệt</p>
                     </div>
                     <div>
-                        <h3 class="font-bold text-gold mb-2">Nhà Trai</h3>
-                        <p class="text-xs font-bold text-gold">Ông Trần Đức Quân</p>
-                        <p class="text-xs font-bold text-gold">Bà Nguyễn Thúy Điệp</p>
+                        <h3 class="font-bold text-gold mb-2" data-lang="groom_side">Nhà Trai</h3>
+                        <p class="text-xs font-bold text-gold"><span data-lang="mr">Ông</span> Trần Đức Quân</p>
+                        <p class="text-xs font-bold text-gold"><span data-lang="mrs">Bà</span> Nguyễn Thúy Điệp</p>
                     </div>
                 </div>
 
-                <p class="mb-8 text-lg uppercase font-bold tracking-widest text-gold-dark">Kính mời tham dự tiệc chung vui<br>cùng gia đình chúng tôi</p>
+                <p class="mb-8 text-lg uppercase font-bold tracking-widest text-gold-dark" data-lang="invitation_text">Kính mời tham dự tiệc chung vui<br>cùng gia đình chúng tôi</p>
 
                 <div class="mb-10">
                     <h2 class="font-script text-7xl text-gold-dark leading-tight">Thùy Chi</h2>
@@ -87,42 +121,42 @@
                     <h2 class="font-script text-7xl text-gold-dark leading-tight">Đức Long</h2>
                 </div>
 
-<div class="border border-gold/30 p-6 max-w-xs mx-auto rounded-sm relative mt-12 bg-white/50 backdrop-blur-sm">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-bg-paper px-4 text-gold-dark font-bold uppercase tracking-widest text-sm whitespace-nowrap">
+                <div class="border border-gold/30 p-6 max-w-xs mx-auto rounded-sm relative mt-12 bg-white/50 backdrop-blur-sm">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-bg-paper px-4 text-gold-dark font-bold uppercase tracking-widest text-sm whitespace-nowrap" data-lang="time_title">
                         Vào lúc 10:30
                     </div>
                     
                     <div class="flex items-center justify-between text-gold-dark pt-2">
                         <div class="text-center">
-                            <span class="block text-xs uppercase tracking-widest font-bold">Thứ Hai</span>
-                            <span class="block font-bold text-lg border-t border-gold/30 mt-1 pt-1">Tháng 3</span>
+                            <span class="block text-xs uppercase tracking-widest font-bold" data-lang="monday">Thứ Hai</span>
+                            <span class="block font-bold text-lg border-t border-gold/30 mt-1 pt-1" data-lang="march">Tháng 3</span>
                         </div>
                         <div class="text-7xl font-serif leading-none text-gold mx-4">30</div>
                         <div class="text-center">
-                            <span class="block text-xs uppercase tracking-widest font-bold">Năm 2026</span>
-                            <span class="block font-bold text-lg border-t border-gold/30 mt-1 pt-1">Bính Ngọ</span> 
-                            </div>
+                            <span class="block text-xs uppercase tracking-widest font-bold" data-lang="year">Năm 2026</span>
+                            <span class="block font-bold text-lg border-t border-gold/30 mt-1 pt-1" data-lang="lunar_year">Bính Ngọ</span> 
+                        </div>
                     </div>
-                    <p class="mt-4 text-sm italic text-gold font-bold">(Tức ngày 13 tháng 2 âm lịch)</p>
+                    <p class="mt-4 text-sm italic text-gold font-bold" data-lang="lunar_date">(Tức ngày 13 tháng 2 âm lịch)</p>
                 </div>
 
                 <div class="mb-8 mt-12">
-                    <p class="uppercase tracking-widest text-gold mb-2 font-bold">Tổ chức tại</p>
+                    <p class="uppercase tracking-widest text-gold mb-2 font-bold" data-lang="location_title">Tổ chức tại</p>
                     <h3 class="text-2xl font-bold text-gold-dark uppercase mb-2">ALMAZ CONVENTION CENTER</h3>
-                    <p class="text-md text-gold font-bold">TẦNG 2, PHÒNG TIỆC PRINCESS BALLROOM, ĐƯỜNG HOA LAN, KĐT VINHOME RIVERSIDE, PHƯỜNG PHÚC LỢI, HÀ NỘI</p>
+                    <p class="text-md text-gold font-bold" data-lang="address">TẦNG 2, PHÒNG TIỆC PRINCESS BALLROOM, ĐƯỜNG HOA LAN, KĐT VINHOME RIVERSIDE, PHƯỜNG PHÚC LỢI, HÀ NỘI</p>
                 </div>
 
                 <a href="https://maps.app.goo.gl/5zCGkyVDmeFyRqv5A" target="_blank" class="inline-flex items-center gap-2 text-gold-dark font-bold uppercase tracking-widest border-b-2 border-gold pb-1 hover:text-gold transition">
                     <i class="fa-solid fa-location-dot"></i>
-                    Chỉ Đường
+                    <span data-lang="directions">Chỉ Đường</span>
                 </a>
             </div>
         </section>
-<!-- bg-[#fdfcf9] -->
+
         <section class="py-20 px-4 bg-white" data-aos="fade-up">
             <div class="text-center mb-16">
-                <h3 class="text-xs tracking-[0.3em] text-gold uppercase font-bold mb-3">Our Day</h3>
-                <h2 class="font-serif text-5xl italic text-gold-dark">Lịch Trình Hôn Lễ</h2>
+                <h3 class="text-xs tracking-[0.3em] text-gold uppercase font-bold mb-3">Our special day</h3>
+                <h2 class="font-serif text-5xl italic text-gold-dark" data-lang="timeline_title">Lịch Trình Hôn Lễ</h2>
             </div>
             
             <div class="max-w-md mx-auto relative px-2">
@@ -131,94 +165,99 @@
                 <div class="relative z-10 flex items-center mb-12 group">
                     <div class="w-1/2 text-right pr-8 transition-transform group-hover:-translate-x-1 duration-300">
                         <h4 class="text-gold-dark font-bold text-2xl font-serif">10:30</h4>
-                        <p class="text-xs uppercase tracking-wider font-bold text-gold">Đón khách</p>
+                        <p class="text-xs uppercase tracking-wider font-bold text-gold" data-lang="timeline_1">Đón khách</p>
                     </div>
                     <div class="w-3 h-3 bg-bg-paper border-2 border-gold rounded-full absolute left-1/2 transform -translate-x-1/2 z-20 shadow-[0_0_0_4px_rgba(160,134,93,0.1)]"></div>
-                    <div class="w-1/2 pl-8 text-sm text-gold  italic">Chụp hình lưu niệm cùng cô dâu chú rể</div>
+                    <div class="w-1/2 pl-8 text-sm text-gold italic" data-lang="timeline_1_desc">Chụp hình cùng cô dâu chú rể</div>
                 </div>
 
                  <div class="relative z-10 flex items-center mb-12 group">
-                    <div class="w-1/2 pr-8 text-sm text-gold italic text-right">Làm lễ trên sân khấu chính</div>
+                    <div class="w-1/2 pr-8 text-sm text-gold italic text-right" data-lang="timeline_2_desc">Làm lễ trên sân khấu chính</div>
                     <div class="w-3 h-3 bg-gold rounded-full absolute left-1/2 transform -translate-x-1/2 z-20 shadow-md"></div>
                     <div class="w-1/2 pl-8 text-left transition-transform group-hover:translate-x-1 duration-300">
                         <h4 class="text-gold-dark font-bold text-2xl font-serif">11:00</h4>
-                        <p class="text-xs uppercase tracking-wider font-bold text-gold">Thành Hôn</p>
+                        <p class="text-xs uppercase tracking-wider font-bold text-gold" data-lang="timeline_2">Thành Hôn</p>
                     </div>
                 </div>
 
                 <div class="relative z-10 flex items-center group">
                     <div class="w-1/2 text-right pr-8 transition-transform group-hover:-translate-x-1 duration-300">
                         <h4 class="text-gold-dark font-bold text-3xl font-serif">11:30</h4>
-                        <p class="text-xs uppercase tracking-wider font-bold text-gold">Nhập Tiệc</p>
+                        <p class="text-xs uppercase tracking-wider font-bold text-gold" data-lang="timeline_3">Khai tiệc</p>
                     </div>
                     <div class="w-6 h-6 bg-gold border-4 border-white shadow-lg rounded-full absolute left-1/2 transform -translate-x-1/2 z-20 animate-pulse"></div>
-                    <div class="w-1/2 pl-8 text-sm text-gold italic">Cùng nâng ly chúc phúc</div>
+                    <div class="w-1/2 pl-8 text-sm text-gold italic" data-lang="timeline_3_desc">Cùng nâng ly chúc phúc</div>
                 </div>
             </div>
         </section>
 
-<section class="py-24 px-6 bg-bg-paper relative overflow-hidden" data-aos="fade-up">
-    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/flower-trail.png')] opacity-5 pointer-events-none"></div>
+        <section class="py-24 px-6 bg-bg-paper relative overflow-hidden" data-aos="fade-up">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/flower-trail.png')] opacity-5 pointer-events-none"></div>
 
-    <div class="relative z-10 max-w-[480px] mx-auto text-center">
-        
-        <div class="mb-10" data-aos="zoom-in" data-aos-duration="1500">
-            <h2 class="font-script text-7xl text-gold drop-shadow-sm">L<span class="text-4xl px-2">&</span>C</h2>
-        </div>
-
-        <p class="font-serif text-text-main text-sm md:text-base leading-loose mb-20 px-4 italic opacity-90" data-aos="fade-up" data-aos-delay="200">
-            "Tình yêu của anh và em là một hành trình kỳ diệu, vượt qua bao thử thách để cùng nhau bước đến ngày trọng đại – đám cưới của chúng mình.<br><br>
-            Đám cưới này là lời cam kết chân thành, là sự bắt đầu của một chương mới – nơi chúng ta cùng vun đắp tổ ấm, cùng sẻ chia mọi vui buồn và cùng nắm tay nhau đi đến cuối con đường mang tên hạnh phúc."
-        </p>
-
-        <div class="relative w-full h-[650px] md:h-[600px]">
-            
-            <div class="absolute top-0 left-0 z-10 w-44 md:w-48 group">
-                <div class="bg-white p-3 pb-8 shadow-2xl transform -rotate-12 transition-all duration-700 group-hover:rotate-0 group-hover:scale-105 group-hover:z-30 cursor-pointer">
-                    <img loading="lazy" src="./assets/DSC_5747.jpg"
-                         alt="Chú rể" 
-                         class="w-full h-56 object-cover filter grayscale-[10%] group-hover:grayscale-0 transition duration-500">
+            <div class="relative z-10 max-w-[480px] mx-auto text-center">
+                
+                <div class="mb-10" data-aos="zoom-in" data-aos-duration="1500">
+                    <h2 class="font-script text-7xl text-gold drop-shadow-sm">L<span class="text-4xl px-2">&</span>C</h2>
                 </div>
-            </div>
-            
-            <div class="absolute top-24 right-12 text-right z-0 w-1/2">
-                <span class="font-script text-4xl text-gold block mb-1">Chú rể</span>
-                <span class="font-serif text-xl font-bold text-gold-dark tracking-widest uppercase border-b border-gold/30 pb-1 inline-block">Đức Long</span>
-            </div>
 
-            <div class="absolute bottom-28 right-0 z-20 w-44 md:w-48 group">
-                <div class="bg-white p-3 pb-8 shadow-2xl transform rotate-6 transition-all duration-700 group-hover:rotate-0 group-hover:scale-105 group-hover:z-30 cursor-pointer">
-                    <img loading="lazy" src="./assets/DSC_5636.jpg" 
-                         alt="Cô dâu" 
-                         class="w-full h-56 object-cover filter grayscale-[10%] group-hover:grayscale-0 transition duration-500">
+                <p class="font-serif text-text-main text-sm md:text-base leading-loose mb-20 px-4 italic opacity-90" data-aos="fade-up" data-aos-delay="200" data-lang="love_quote_1">
+                    "Tình yêu của bọn mình không quá ồn ào hay hoàn hảo, nhưng đủ vui, đủ tin tưởng và đủ kiên định. Từ hai người xa lạ mà dần dần trở thành thói quen của nhau mỗi ngày. Và rồi, bọn mình chọn gọi mối quan hệ này bằng hai chữ: gia đình."
+                </p>
+
+                <div class="relative w-full h-[650px] md:h-[600px]">
+                    
+                    <div class="absolute top-0 left-0 z-10 w-44 md:w-48 group">
+                        <div class="bg-white p-3 pb-8 shadow-2xl transform -rotate-12 transition-all duration-700 group-hover:rotate-0 group-hover:scale-105 group-hover:z-30 cursor-pointer">
+                            <img loading="lazy" src="./assets/DSC_5747.jpg"
+                                 alt="Chú rể" 
+                                 class="w-full h-56 object-cover filter grayscale-[10%] group-hover:grayscale-0 transition duration-500">
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-24 right-12 text-right z-0 w-1/2">
+                        <span class="font-script text-4xl text-gold block mb-1" data-lang="groom">Chú rể</span>
+                        <span class="font-serif text-xl font-bold text-gold-dark tracking-widest uppercase border-b border-gold/30 pb-1 inline-block">Đức Long</span>
+                    </div>
+
+                    <div class="absolute bottom-28 right-0 z-20 w-44 md:w-48 group">
+                        <div class="bg-white p-3 pb-8 shadow-2xl transform rotate-6 transition-all duration-700 group-hover:rotate-0 group-hover:scale-105 group-hover:z-30 cursor-pointer">
+                            <img loading="lazy" src="./assets/DSC_5636.jpg" 
+                                 alt="Cô dâu" 
+                                 class="w-full h-56 object-cover filter grayscale-[10%] group-hover:grayscale-0 transition duration-500">
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-48 left-12 text-left z-10 w-1/2">
+                        <span class="font-script text-4xl text-gold block mb-1" data-lang="bride">Cô dâu</span>
+                        <span class="font-serif text-xl font-bold text-gold-dark tracking-widest uppercase border-b border-gold/30 pb-1 inline-block">Thùy Chi</span>
+                    </div>
+
                 </div>
+
+                <div class="px-8" data-aos="fade-up">
+                    <p class="font-serif text-text-main text-xs uppercase tracking-widest leading-relaxed text-gold-dark" data-lang="love_quote_2">
+                        Một cột mốc mới bắt đầu. Rất mong có bạn cùng chung vui trong ngày cưới của bọn mình.
+                    </p>
+                </div>
+
             </div>
-
-            <div class="absolute bottom-48 left-12 text-left z-10 w-1/2">
-                <span class="font-script text-4xl text-gold block mb-1">Cô dâu</span>
-                <span class="font-serif text-xl font-bold text-gold-dark tracking-widest uppercase border-b border-gold/30 pb-1 inline-block">Thùy Chi</span>
-            </div>
-
-        </div>
-
-        <div class="px-8" data-aos="fade-up">
-            <p class="font-serif text-text-main text-xs uppercase tracking-widest leading-relaxed text-gold-dark">
-                Hôm nay là ngày chúng mình cùng nắm tay<br> bước vào hành trình mới, hành trình của<br> yêu thương và sẻ chia.
-            </p>
-        </div>
-
-    </div>
-</section>
+        </section>
 
         <section class="py-20 px-6 text-center border-t border-b border-gold/10 relative overflow-hidden" data-aos="zoom-in">
              <div class="absolute -right-10 top-0 text-[10rem] text-gold/5 font-script leading-none select-none pointer-events-none">March</div>
 
-            <h3 class="font-serif text-4xl italic text-gold-dark mb-2 relative z-10">Tháng Ba, 2026</h3>
-            <p class="text-xs text-text-main uppercase tracking-[0.2em] mb-10 relative z-10">Save the best for last</p>
+            <h3 class="font-serif text-4xl italic text-gold-dark mb-2 relative z-10" data-lang="calendar_header">Tháng Ba, 2026</h3>
+            <p class="text-xs text-text-main uppercase tracking-[0.2em] mb-10 relative z-10">A date to remember</p>
 
             <div class="w-full max-w-xs mx-auto font-serif relative z-10 bg-white p-6 rounded shadow-sm border border-gold/10">
                 <div class="grid grid-cols-7 gap-2 mb-4 text-xs font-bold text-gold tracking-widest border-b border-gray-100 pb-2">
-                    <div class="text-red-500">CN</div><div>T2</div><div>T3</div><div>T4</div><div>T5</div><div>T6</div><div>T7</div>
+                    <div class="text-red-500" data-lang="sun">CN</div>
+                    <div data-lang="mon">T2</div>
+                    <div data-lang="tue">T3</div>
+                    <div data-lang="wed">T4</div>
+                    <div data-lang="thu">T5</div>
+                    <div data-lang="fri">T6</div>
+                    <div data-lang="sat">T7</div>
                 </div>
                 
                 <div class="grid grid-cols-7 gap-1 text-base text-text-main calendar-grid">
@@ -237,23 +276,23 @@
             </div>
 
             <div class="mt-12">
-                <p class="text-gold-dark uppercase tracking-widest text-xs mb-4">Cùng đếm ngược giây phút hạnh phúc</p>
+                <p class="text-gold-dark uppercase tracking-widest text-xs mb-4" data-lang="countdown_title">Cùng đếm ngược giây phút hạnh phúc</p>
                 <div id="countdown" class="flex justify-center gap-3 text-gold-dark font-serif">
                     <div class="bg-white border border-gold/20 w-16 h-16 flex flex-col items-center justify-center rounded shadow-sm">
                         <span id="days" class="text-2xl font-bold leading-none">00</span>
-                        <span class="text-[0.6rem] uppercase tracking-wider mt-1">Ngày</span>
+                        <span class="text-[0.6rem] uppercase tracking-wider mt-1" data-lang="day_label">Ngày</span>
                     </div>
                     <div class="bg-white border border-gold/20 w-16 h-16 flex flex-col items-center justify-center rounded shadow-sm">
                         <span id="hours" class="text-2xl font-bold leading-none">00</span>
-                        <span class="text-[0.6rem] uppercase tracking-wider mt-1">Giờ</span>
+                        <span class="text-[0.6rem] uppercase tracking-wider mt-1" data-lang="hour_label">Giờ</span>
                     </div>
                     <div class="bg-white border border-gold/20 w-16 h-16 flex flex-col items-center justify-center rounded shadow-sm">
                         <span id="minutes" class="text-2xl font-bold leading-none">00</span>
-                        <span class="text-[0.6rem] uppercase tracking-wider mt-1">Phút</span>
+                        <span class="text-[0.6rem] uppercase tracking-wider mt-1" data-lang="min_label">Phút</span>
                     </div>
                     <div class="bg-white border border-gold/20 w-16 h-16 flex flex-col items-center justify-center rounded shadow-sm">
                         <span id="seconds" class="text-2xl font-bold leading-none">00</span>
-                        <span class="text-[0.6rem] uppercase tracking-wider mt-1">Giây</span>
+                        <span class="text-[0.6rem] uppercase tracking-wider mt-1" data-lang="sec_label">Giây</span>
                     </div>
                 </div>
             </div>
@@ -262,75 +301,22 @@
         <section class="py-20 bg-white px-4" data-aos="fade-up">
             <div class="text-center mb-10">
                 <h3 class="text-xs tracking-[0.3em] text-gold uppercase font-bold mb-3">Gallery</h3>
-                <h2 class="font-serif text-4xl italic text-gold-dark">Khoảnh Khắc Đẹp</h2>
+                <h2 class="font-serif text-4xl italic text-gold-dark" data-lang="gallery_title">Khoảnh Khắc Đẹp</h2>
             </div>
             <div class="columns-2 gap-3 space-y-3">
-                <img loading="lazy" src="./assets/DLP_1134.jpg" class="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90 transition duration-300" onclick="openModal(this)">
+                <img loading="lazy" src="./assets/DSC_4986.JPG" class="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90 transition duration-300" onclick="openModal(this)">
                 <img loading="lazy" src="./assets/DLP_1213.JPG" class="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90 transition duration-300" onclick="openModal(this)">
                 <img loading="lazy" src="./assets/DSC_4714.JPG" class="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90 transition duration-300" onclick="openModal(this)">
                 <img loading="lazy" src="./assets/DLP_0608.jpg" class="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90 transition duration-300" onclick="openModal(this)">
-                <!-- <img loading="lazy" src="./assets/DSC_4714.JPG" class="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90 transition duration-300" onclick="openModal(this)"> -->
-                <!-- <img loading="lazy" src="./assets/DSC_5636.jpg" class="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90 transition duration-300" onclick="openModal(this)"> -->
             </div>
         </section>
-
-        <!-- <section class="py-20 px-6 text-center mb-20 bg-[#fbf9f5]" data-aos="fade-up">
-            <h3 class="text-xs tracking-[0.3em] text-gold uppercase font-bold mb-3">Wedding Gift</h3>
-            <h2 class="font-serif text-4xl italic text-gold-dark mb-6">Gửi Tấm Lòng</h2>
-            <p class="text-text-main text-sm mb-10 leading-relaxed italic max-w-xs mx-auto">
-                Sự hiện diện của quý vị là niềm vinh hạnh lớn nhất. <br>
-                Nếu không thể tham dự, bạn có thể gửi lời chúc qua:
-            </p>
-
-            <div class="space-y-4 max-w-sm mx-auto font-serif">
-                <div class="border border-gold/30 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition">
-                    <button class="w-full flex justify-between items-center p-5 hover:bg-gold/5 transition" onclick="toggleAccordion('groom-bank')">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-gift text-gold"></i>
-                            <span class="font-bold text-gold-dark uppercase tracking-wider text-sm">Mừng Chú Rể</span>
-                        </div>
-                        <i class="fas fa-chevron-down text-gold/50 text-xs transition-transform duration-300" id="icon-groom-bank"></i>
-                    </button>
-                    <div id="groom-bank" class="hidden p-6 text-left border-t border-gold/10 bg-bg-paper">
-                        <div class="flex flex-col gap-1 mb-4">
-                            <p class="text-xs text-gold uppercase tracking-widest">Vietcombank</p>
-                            <p class="font-bold text-2xl text-gold-dark tracking-wide font-sans">1234.5678.9999</p>
-                            <p class="text-xs text-text-main uppercase">Nguyễn Anh Linh</p>
-                        </div>
-                        <button onclick="copyText(this, '123456789999')" class="w-full py-2 text-xs uppercase tracking-widest border border-gold text-gold hover:bg-gold hover:text-white transition rounded-sm flex items-center justify-center gap-2">
-                            <i class="fa-regular fa-copy"></i> <span>Sao chép STK</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="border border-gold/30 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition">
-                    <button class="w-full flex justify-between items-center p-5 hover:bg-gold/5 transition" onclick="toggleAccordion('bride-bank')">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-heart text-gold"></i>
-                            <span class="font-bold text-gold-dark uppercase tracking-wider text-sm">Mừng Cô Dâu</span>
-                        </div>
-                        <i class="fas fa-chevron-down text-gold/50 text-xs transition-transform duration-300" id="icon-bride-bank"></i>
-                    </button>
-                    <div id="bride-bank" class="hidden p-6 text-left border-t border-gold/10 bg-bg-paper">
-                        <div class="flex flex-col gap-1 mb-4">
-                            <p class="text-xs text-gold uppercase tracking-widest">Techcombank</p>
-                            <p class="font-bold text-2xl text-gold-dark tracking-wide font-sans">8888.6666.2222</p>
-                            <p class="text-xs text-text-main uppercase">Phạm Thanh Nga</p>
-                        </div>
-                        <button onclick="copyText(this, '888866662222')" class="w-full py-2 text-xs uppercase tracking-widest border border-gold text-gold hover:bg-gold hover:text-white transition rounded-sm flex items-center justify-center gap-2">
-                            <i class="fa-regular fa-copy"></i> <span>Sao chép STK</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section> -->
 
         <footer class="py-12 bg-gold-dark text-center text-white/80 font-serif relative">
              <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <h2 class="font-script text-5xl mb-4 text-[#f0eadd] relative z-10">Long & Chi</h2>
-            <p class="text-xs uppercase tracking-[0.3em] mb-8 relative z-10">Thank you for coming</p>
+            <p class="text-xs uppercase tracking-[0.3em] mb-8 relative z-10">We look forward to celebrating with you</p>
             <button onclick="shareLink()" class="relative z-10 flex items-center justify-center gap-2 mx-auto border border-white/30 px-8 py-3 rounded-full hover:bg-white/10 transition text-xs uppercase tracking-wider bg-black/10 backdrop-blur-sm">
-                <i class="fas fa-share-alt"></i> Chia sẻ thiệp
+                <i class="fas fa-share-alt"></i> <span data-lang="share_btn">Chia sẻ thiệp</span>
             </button>
         </footer>
 
