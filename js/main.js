@@ -48,7 +48,7 @@ const translations = {
         march: "March",
         year: "2026",
         lunar_year: "Year of Horse",
-        lunar_date: "(13th of 2nd Lunar Month)",
+        lunar_date: " ",
         location_title: "To be held at",
         address: "SECOND FLOOR, PRINCESS BALLROOM, HOA LAN STREET, VINHOME RIVERSIDE ECO-URBAN AREA, PHUC LOI WARD, HANOI",
         directions: "Get Directions",
